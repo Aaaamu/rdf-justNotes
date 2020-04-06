@@ -1,0 +1,132 @@
+@prefix : <https://omeka.aggloculture.net/ns/commons#> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix commons: <https://omeka.aggloculture.net/ns/commons/0.1#> .
+@base <https://omeka.aggloculture.net/ns/commons#> .
+
+<https://omeka.aggloculture.net/ns/commons#> rdf:type owl:Ontology ;
+                                              owl:versionIRI commons: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#hasDimensionOfCommoning
+commons:hasDimensionOfCommoning rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                rdfs:range [ rdf:type owl:Restriction ;
+                                             owl:onProperty commons:hasDimensionOfCommoning ;
+                                             owl:someValuesFrom commons:DigitalEntity
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty commons:hasDimensionOfCommoning ;
+                                             owl:someValuesFrom commons:MaterialEntity
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty commons:hasDimensionOfCommoning ;
+                                             owl:someValuesFrom commons:OtherTypeEntity
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty commons:hasDimensionOfCommoning ;
+                                             owl:someValuesFrom commons:SocialEntity
+                                           ] .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#hasFormOfOrganisation
+commons:hasFormOfOrganisation rdf:type owl:ObjectProperty ;
+                              rdfs:range [ rdf:type owl:Restriction ;
+                                           owl:onProperty commons:hasFormOfOrganisation ;
+                                           owl:someValuesFrom commons:CircleOfFriends
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty commons:hasFormOfOrganisation ;
+                                           owl:someValuesFrom commons:Commune
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty commons:hasFormOfOrganisation ;
+                                           owl:someValuesFrom commons:Cooperative
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty commons:hasFormOfOrganisation ;
+                                           owl:someValuesFrom commons:GmbH
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty commons:hasFormOfOrganisation ;
+                                           owl:someValuesFrom commons:LooseAssociation
+                                         ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://omeka.aggloculture.net/ns/commons#Land
+:Land rdf:type owl:Class ;
+      rdfs:subClassOf commons:MaterialEntity .
+
+
+###  https://omeka.aggloculture.net/ns/commons#MaterialObject
+:MaterialObject rdf:type owl:Class ;
+                rdfs:subClassOf commons:MaterialEntity .
+
+
+###  https://omeka.aggloculture.net/ns/commons#Organisation
+:Organisation rdf:type owl:Class ;
+              rdfs:subClassOf commons:SocialEntity .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#CircleOfFriends
+commons:CircleOfFriends rdf:type owl:Class ;
+                        rdfs:subClassOf :Organisation .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#Commune
+commons:Commune rdf:type owl:Class ;
+                rdfs:subClassOf :Organisation .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#Cooperative
+commons:Cooperative rdf:type owl:Class ;
+                    rdfs:subClassOf :Organisation .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#DigitalEntity
+commons:DigitalEntity rdf:type owl:Class .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#GmbH
+commons:GmbH rdf:type owl:Class ;
+             rdfs:subClassOf :Organisation .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#LooseAssociation
+commons:LooseAssociation rdf:type owl:Class ;
+                         rdfs:subClassOf :Organisation .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#MaterialEntity
+commons:MaterialEntity rdf:type owl:Class .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#OtherTypeEntity
+commons:OtherTypeEntity rdf:type owl:Class .
+
+
+###  https://omeka.aggloculture.net/ns/commons/0.1#SocialEntity
+commons:SocialEntity rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://omeka.aggloculture.net/ns/commons#Testinstance
+:Testinstance rdf:type owl:NamedIndividual ,
+                       commons:OtherTypeEntity .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
